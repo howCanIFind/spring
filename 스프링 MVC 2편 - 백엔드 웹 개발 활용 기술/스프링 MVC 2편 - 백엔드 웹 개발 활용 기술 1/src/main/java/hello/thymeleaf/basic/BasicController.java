@@ -68,6 +68,13 @@ public class BasicController {
         return "basic/link";
     }
 
+    @Component("helloBean")
+    static class HelloBean {
+        public String hello(String data) {
+            return "Hello " + data;
+        }
+    }
+
     @GetMapping("/literal")
     public String literal(Model model) {
         model.addAttribute("data", "Spring!");
@@ -81,11 +88,9 @@ public class BasicController {
         return "basic/operation";
     }
 
-    @Component("helloBean")
-    static class HelloBean {
-        public String hello(String data) {
-            return "Hello " + data;
-        }
+    @GetMapping("/attribute")
+    public String attribute() {
+        return "basic/attribute";
     }
 
     @Data
